@@ -1,0 +1,1487 @@
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Құзырет және құзыреттілік | Академиялық презентация</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #071323;
+  --navy2: #101d34;
+  --gold: #e7c68b;
+  --white: #f7f7fc;
+  --muted: #c6d2e2;
+  --line: rgba(255,255,255,.22);
+  --glass: rgba(9,22,43,.82);
+}
+* {box-sizing:border-box}
+html,body {
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#06101d;
+  color:var(--white);
+  font-family:Manrope,Arial,sans-serif;
+}
+button,a {font:inherit}
+button {cursor:pointer}
+a {color:#f5d69d}
+button:focus-visible,a:focus-visible {
+  outline:3px solid var(--gold);
+  outline-offset:4px;
+}
+
+/* ПРЕЗЕНТАЦИЯ ФОНДАРЫ */
+.slide {
+  position:absolute;
+  inset:0;
+  display:none;
+  overflow-y:auto;
+  overflow-x:hidden;
+  padding:clamp(26px,4vw,76px) clamp(25px,6vw,110px) 105px;
+  background:#0b172a;
+  isolation:isolate;
+  scrollbar-width:thin;
+  scrollbar-color:#a88b61 #15233b;
+}
+.slide.active {
+  display:block;
+  animation:slideEnter .65s ease both;
+}
+.slide::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background-image:
+    linear-gradient(90deg,rgba(4,12,25,.97) 0%,
+    rgba(6,17,34,.91) 46%,
+    rgba(7,18,35,.69) 100%),
+    var(--photo);
+  background-size:cover;
+  background-position:center;
+  animation:cinema 20s ease-in-out infinite alternate;
+}
+.slide::after {
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 85% 12%,
+      rgba(217,174,103,.12),transparent 40%),
+    linear-gradient(0deg,rgba(4,12,25,.6),transparent 35%);
+}
+@keyframes cinema {
+  from {transform:scale(1)}
+  to {transform:scale(1.045)}
+}
+@keyframes slideEnter {
+  from {opacity:0;transform:translateY(22px)}
+  to {opacity:1;transform:translateY(0)}
+}
+@keyframes rise {
+  from {opacity:0;transform:translateY(28px)}
+  to {opacity:1;transform:translateY(0)}
+}
+
+.s1 {
+  --photo:url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1800&q=85");
+}
+.s2 {
+  --photo:url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1800&q=85");
+}
+.s3 {
+  --photo:url("https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?w=1800&q=85");
+}
+.s4 {
+  --photo:url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1800&q=85");
+}
+.s5 {
+  --photo:url("https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1800&q=85");
+}
+.s6 {
+  --photo:url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1800&q=85");
+}
+.s7 {
+  --photo:url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1800&q=85");
+}
+.s8 {
+  --photo:url("https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1800&q=85");
+}
+.s9 {
+  --photo:url("https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1800&q=85");
+}
+.s10 {
+  --photo:url("https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1800&q=85");
+}
+.s11 {
+  --photo:url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1800&q=85");
+}
+
+/* ТИПОГРАФИЯ */
+.eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  color:var(--gold);
+  font-size:clamp(15px,1.3vw,22px);
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+.eyebrow::before {
+  content:"";
+  width:42px;
+  height:2px;
+  background:var(--gold);
+}
+h1 {
+  font-size:clamp(38px,4.3vw,76px);
+  line-height:1.16;
+  letter-spacing:-1.8px;
+  margin:10px 0 25px;
+  font-weight:800;
+  max-width:1350px;
+}
+h2 {
+  font-size:clamp(34px,3.45vw,62px);
+  line-height:1.15;
+  margin:4px 0 24px;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+h3 {
+  font-size:clamp(24px,2vw,36px);
+  margin:0 0 13px;
+  color:var(--gold);
+}
+p,li {
+  font-size:clamp(21px,1.85vw,32px);
+  line-height:1.52;
+}
+p {margin:0 0 18px}
+strong {color:#fff}
+.gold {color:var(--gold)}
+.lead {
+  font-size:clamp(25px,2.3vw,41px);
+  line-height:1.48;
+  font-weight:600;
+  max-width:1400px;
+}
+.small {
+  font-size:clamp(17px,1.45vw,25px);
+  color:var(--muted);
+}
+.quote {
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:clamp(28px,2.8vw,49px);
+  line-height:1.35;
+  color:#f5d9a9;
+}
+.slide-header {
+  margin-bottom:30px;
+  position:relative;
+}
+.slide-header::after {
+  content:"";
+  display:block;
+  width:130px;
+  height:4px;
+  margin-top:20px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+}
+
+/* КАРТОЧКАЛАР */
+.grid2 {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:23px;
+}
+.grid3 {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;
+}
+.card {
+  background:linear-gradient(140deg,
+    rgba(25,44,70,.91),rgba(8,19,37,.91));
+  border:1px solid rgba(231,198,139,.28);
+  border-radius:22px;
+  padding:clamp(20px,2vw,34px);
+  box-shadow:0 16px 45px rgba(0,0,0,.24);
+  backdrop-filter:blur(15px);
+  transition:transform .35s,box-shadow .35s,border-color .35s;
+  transform-style:preserve-3d;
+}
+.card:hover {
+  transform:translateY(-7px) perspective(900px) rotateX(2deg);
+  border-color:var(--gold);
+  box-shadow:0 22px 55px rgba(0,0,0,.4);
+}
+.card p,.card li {
+  font-size:clamp(20px,1.65vw,29px);
+}
+.card h3 {
+  font-size:clamp(23px,1.9vw,34px);
+}
+.icon {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:60px;
+  height:60px;
+  border-radius:17px;
+  background:rgba(231,198,139,.13);
+  border:1px solid rgba(231,198,139,.35);
+  color:var(--gold);
+  font-size:32px;
+  margin-bottom:15px;
+}
+.definition {
+  padding:25px 30px;
+  border-left:5px solid var(--gold);
+  border-radius:0 17px 17px 0;
+  background:rgba(8,20,40,.85);
+  margin:20px 0 27px;
+}
+.definition p {margin:0}
+ul {
+  padding-left:30px;
+  margin:10px 0;
+}
+li {padding:3px 0}
+li::marker {color:var(--gold)}
+.pill {
+  display:inline-block;
+  border:1px solid rgba(231,198,139,.5);
+  border-radius:50px;
+  padding:9px 17px;
+  margin:5px;
+  color:#f3dcaf;
+  background:rgba(231,198,139,.09);
+  font-size:clamp(17px,1.35vw,24px);
+}
+.photo {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:20px;
+  border:1px solid rgba(231,198,139,.3);
+  box-shadow:0 15px 50px rgba(0,0,0,.35);
+}
+.photo-panel {
+  min-height:330px;
+  position:relative;
+}
+.photo-caption {
+  position:absolute;
+  bottom:12px;
+  left:12px;
+  right:12px;
+  background:rgba(5,16,32,.88);
+  padding:14px;
+  border-radius:12px;
+  font-size:clamp(16px,1.3vw,23px);
+  color:#fff;
+}
+.split {
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:28px;
+  align-items:stretch;
+}
+.split.reverse {
+  grid-template-columns:.85fr 1.15fr;
+}
+.info-list {
+  display:grid;
+  gap:12px;
+}
+.info-item {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  background:rgba(14,30,54,.85);
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:13px 18px;
+  font-size:clamp(20px,1.7vw,29px);
+  font-weight:600;
+}
+.info-item .num {
+  color:var(--gold);
+  font-size:clamp(22px,2vw,36px);
+  font-weight:800;
+  min-width:50px;
+}
+.table-wrap {
+  overflow-x:auto;
+  background:rgba(7,20,39,.91);
+  border:1px solid rgba(231,198,139,.3);
+  border-radius:20px;
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+th,td {
+  padding:clamp(15px,1.6vw,28px);
+  text-align:left;
+  border-bottom:1px solid var(--line);
+  font-size:clamp(20px,1.75vw,30px);
+  line-height:1.4;
+  vertical-align:top;
+}
+th {
+  background:rgba(231,198,139,.15);
+  color:var(--gold);
+  font-weight:800;
+}
+tr:last-child td {border-bottom:0}
+td:first-child {
+  border-right:1px solid var(--line);
+}
+.highlight {
+  color:var(--gold);
+  font-weight:800;
+}
+
+/* ҒАЛЫМДАР */
+.scholar {
+  border-left:3px solid var(--gold);
+  padding:15px 20px;
+  background:rgba(5,15,30,.8);
+  border-radius:0 14px 14px 0;
+}
+.scholar b {
+  color:var(--gold);
+  font-size:clamp(21px,1.65vw,29px);
+}
+.scholar p {
+  font-size:clamp(18px,1.35vw,24px);
+  margin:8px 0 0;
+}
+
+/* АНИМАЦИЯЛЫҚ СХЕМА */
+.timeline {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+  margin:35px 0;
+}
+.step {
+  padding:25px 12px;
+  text-align:center;
+  border:1px solid rgba(231,198,139,.5);
+  border-radius:20px;
+  background:rgba(12,32,57,.9);
+  position:relative;
+  animation:rise .8s ease both;
+}
+.step:nth-child(2){animation-delay:.15s}
+.step:nth-child(3){animation-delay:.3s}
+.step:nth-child(4){animation-delay:.45s}
+.step:nth-child(5){animation-delay:.6s}
+.step b {
+  display:block;
+  font-size:clamp(19px,1.65vw,30px);
+}
+.step span {
+  display:block;
+  color:var(--gold);
+  font-size:clamp(27px,2.5vw,46px);
+  margin-bottom:12px;
+}
+.step:not(:last-child)::after {
+  content:"›";
+  position:absolute;
+  right:-17px;
+  top:35%;
+  color:var(--gold);
+  font-size:37px;
+  z-index:3;
+}
+
+/* ИНТЕРАКТИВТЕР */
+.interactive {
+  border:1px solid rgba(231,198,139,.4);
+  border-radius:22px;
+  background:rgba(7,20,40,.92);
+  padding:24px;
+  margin-top:22px;
+}
+.interactive h3 {margin-bottom:14px}
+.option {
+  display:block;
+  width:100%;
+  text-align:left;
+  padding:15px 22px;
+  margin:10px 0;
+  border-radius:13px;
+  border:1px solid rgba(255,255,255,.27);
+  color:#fff;
+  background:rgba(33,54,82,.8);
+  font-size:clamp(19px,1.6vw,27px);
+  transition:.25s;
+}
+.option:hover {
+  background:rgba(231,198,139,.18);
+  border-color:var(--gold);
+}
+.option.correct {
+  background:rgba(30,120,83,.5);
+  border-color:#65e6aa;
+}
+.option.wrong {
+  background:rgba(160,53,53,.42);
+  border-color:#f39c9c;
+}
+.feedback {
+  font-size:clamp(19px,1.55vw,27px);
+  margin-top:14px;
+  color:#f5d59b;
+  min-height:25px;
+}
+.spotlight {
+  cursor:pointer;
+  border-bottom:2px dotted var(--gold);
+}
+.spotlight:hover {color:var(--gold)}
+#spotlightOverlay {
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:rgba(2,8,18,.95);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:30px;
+}
+#spotlightOverlay.open {display:flex}
+#spotlightBox {
+  max-width:1000px;
+  background:linear-gradient(140deg,#192c49,#091629);
+  border:2px solid var(--gold);
+  padding:45px;
+  border-radius:26px;
+  box-shadow:0 0 100px rgba(231,198,139,.13);
+}
+#spotlightBox h2 {color:var(--gold)}
+#spotlightBox p {font-size:clamp(24px,2.4vw,39px)}
+
+/* QR */
+.sources {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:17px;
+}
+.source {
+  display:flex;
+  gap:20px;
+  align-items:center;
+  padding:20px;
+  border:1px solid var(--line);
+  background:rgba(8,22,42,.92);
+  border-radius:17px;
+  min-width:0;
+}
+.source img {
+  width:118px;
+  height:118px;
+  padding:6px;
+  border-radius:8px;
+  background:#fff;
+  flex-shrink:0;
+}
+.source b {
+  display:block;
+  font-size:clamp(18px,1.45vw,25px);
+  margin-bottom:8px;
+}
+.source a {
+  overflow-wrap:anywhere;
+  font-size:clamp(16px,1.1vw,21px);
+}
+
+/* БАСҚАРУ */
+nav {
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:82px;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 4vw;
+  background:rgba(4,12,25,.96);
+  border-top:1px solid rgba(231,198,139,.24);
+  backdrop-filter:blur(16px);
+}
+.nav-left {
+  color:var(--gold);
+  font-size:clamp(16px,1.3vw,23px);
+  font-weight:800;
+}
+.nav-right {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.nav-btn {
+  background:#1b304e;
+  color:#fff;
+  border:1px solid rgba(231,198,139,.45);
+  border-radius:12px;
+  padding:11px 20px;
+  font-size:clamp(18px,1.4vw,25px);
+  font-weight:700;
+}
+.nav-btn:hover {
+  background:#374f70;
+}
+#progress {
+  position:fixed;
+  bottom:82px;
+  left:0;
+  height:4px;
+  background:var(--gold);
+  width:9.09%;
+  z-index:101;
+  transition:width .4s;
+}
+.slide-no {
+  position:absolute;
+  top:27px;
+  right:5vw;
+  color:rgba(231,198,139,.5);
+  font-size:clamp(30px,4vw,65px);
+  font-weight:800;
+  pointer-events:none;
+}
+footer.note {
+  margin-top:25px;
+  color:#d9e1ee;
+  font-size:clamp(17px,1.25vw,23px);
+}
+@media(max-width:950px) {
+  .grid3,.grid2,.split,.split.reverse,.sources {
+    grid-template-columns:1fr;
+  }
+  .timeline {
+    grid-template-columns:repeat(2,1fr);
+  }
+  .step:not(:last-child)::after {display:none}
+  .photo-panel {height:310px}
+  .slide {padding-bottom:110px}
+  .source img {width:90px;height:90px}
+}
+@media(max-width:600px) {
+  h1 {font-size:34px}
+  h2 {font-size:31px}
+  p,li {font-size:21px}
+  .lead {font-size:23px}
+  .slide {padding:28px 18px 110px}
+  .slide-no {display:none}
+  .timeline {grid-template-columns:1fr}
+  th,td {font-size:18px;padding:13px}
+  nav {padding:8px}
+  .nav-btn {padding:9px 11px;font-size:17px}
+  .nav-left {font-size:15px}
+  .source {flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 1-СЛАЙД -->
+<section class="slide s1 active">
+  <div class="slide-no">01</div>
+  <div class="eyebrow">ACADEMIC PRESENTATION · PEDAGOGY</div>
+
+  <div style="margin-top:6vh">
+    <span class="pill">Қазіргі білім беру парадигмасы</span>
+    <span class="pill">Құзыреттілік тәсілі</span>
+
+    <h1>
+      БІЛІМ БЕРУ ЖҮЙЕСІНІҢ
+      <span class="gold">ҚҰЗЫРЕТТІЛІК ТӘСІЛІ</span>
+      АЯСЫНДА ҚҰЗЫРЕТ ЖӘНЕ
+      ҚҰЗЫРЕТТІЛІК ҰҒЫМДАРЫНЫҢ
+      МӘНІ МЕН АРАҚАТЫНАСЫ
+    </h1>
+
+    <div class="definition" style="max-width:1000px">
+      <p class="lead">
+        Білімнен — тәжірибеге.
+        Теориядан — нақты кәсіби әрекетке.
+      </p>
+    </div>
+
+    <p style="font-size:27px">
+      Орындаған: <strong>КА-25-20 тобының студенттері</strong>
+    </p>
+    <p class="small">Педагогика · Академиялық презентация</p>
+  </div>
+</section>
+
+<!-- 2-СЛАЙД -->
+<section class="slide s2">
+  <div class="slide-no">02</div>
+  <div class="slide-header">
+    <div class="eyebrow">01 · ТЕОРИЯЛЫҚ НЕГІЗ</div>
+    <h2>Құзыреттілік тәсілі туралы түсінік</h2>
+  </div>
+
+  <div class="definition">
+    <p class="lead">
+      <span class="gold spotlight"
+        data-title="Құзыреттілік тәсілі"
+        data-info="Білім алушының теориялық білімін нақты өмірлік және кәсіби жағдайларда тиімді қолдануына бағытталған білім берудің әдіснамалық бағыты.">
+        Құзыреттілік тәсілі
+      </span>
+      – білім алушының теориялық білімін тәжірибеде
+      қолдана білуіне бағытталған білім берудің
+      әдіснамалық бағыты.
+    </p>
+  </div>
+
+  <h3>Негізгі ерекшеліктері</h3>
+
+  <div class="grid3">
+    <div class="card">
+      <div class="icon">◈</div>
+      <h3>Білімді қолдану</h3>
+      <p>Алған білімді өмірлік жағдайда пайдалану.</p>
+    </div>
+    <div class="card">
+      <div class="icon">⚙</div>
+      <h3>Практикалық дағдылар</h3>
+      <p>Нақты әрекеттерді орындауға қажетті дағдыларды қалыптастыру.</p>
+    </div>
+    <div class="card">
+      <div class="icon">◇</div>
+      <h3>Шешім қабылдау</h3>
+      <p>Өз бетінше шешім қабылдау қабілетін дамыту.</p>
+    </div>
+    <div class="card">
+      <div class="icon">◎</div>
+      <h3>Сыни ойлау</h3>
+      <p>Ақпаратты талдау, салыстыру және бағалау.</p>
+    </div>
+    <div class="card">
+      <div class="icon">✦</div>
+      <h3>Жан-жақты даму</h3>
+      <p>Тұлғаның интеллектуалдық, әлеуметтік және кәсіби дамуын қамтамасыз ету.</p>
+    </div>
+    <div class="card">
+      <div class="icon">↗</div>
+      <h3>Нәтижеге бағдарлану</h3>
+      <p>Оқу нәтижесін білімді іс жүзінде қолдану арқылы көрсету.</p>
+    </div>
+  </div>
+
+  <footer class="note">
+    Ғылыми байланыс: Джон Дьюидің тәжірибе арқылы оқыту
+    идеялары білім мен практиканың бірлігін түсіндіруге көмектеседі.
+  </footer>
+</section>
+
+<!-- 3-СЛАЙД -->
+<section class="slide s3">
+  <div class="slide-no">03</div>
+  <div class="slide-header">
+    <div class="eyebrow">02 · МАҚСАТ ЖӘНЕ МІНДЕТ</div>
+    <h2>Құзыреттілік тәсілінің мақсаты мен міндеттері</h2>
+  </div>
+
+  <div class="definition">
+    <h3>Негізгі мақсаты</h3>
+    <p class="lead">
+      Білімді меңгерген ғана емес, оны тәжірибеде
+      тиімді пайдалана алатын
+      <span class="gold">бәсекеге қабілетті тұлға</span>
+      қалыптастыру.
+    </p>
+  </div>
+
+  <div class="split">
+    <div>
+      <h3>Негізгі міндеттері</h3>
+      <div class="info-list">
+        <div class="info-item"><span class="num">01</span>Білім алушылардың танымдық белсенділігін арттыру</div>
+        <div class="info-item"><span class="num">02</span>Шығармашылық қабілеттерін дамыту</div>
+        <div class="info-item"><span class="num">03</span>Коммуникативтік дағдыларды қалыптастыру</div>
+        <div class="info-item"><span class="num">04</span>Ақпаратпен жұмыс істеуге үйрету</div>
+        <div class="info-item"><span class="num">05</span>Өзін-өзі дамытуға және үздіксіз білім алуға бағыттау</div>
+      </div>
+    </div>
+    <div class="photo-panel">
+      <img class="photo" loading="lazy"
+        src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1100&q=85"
+        alt="Студенттердің бірлесіп білім алуы">
+      <div class="photo-caption">
+        Білім алушы — оқу үдерісінің белсенді қатысушысы
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4-СЛАЙД -->
+<section class="slide s4">
+  <div class="slide-no">04</div>
+  <div class="slide-header">
+    <div class="eyebrow">03 · САЛЫСТЫРМАЛЫ ТАЛДАУ</div>
+    <h2>Дәстүрлі және құзыреттілік тәсілдерінің айырмашылығы</h2>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Дәстүрлі тәсіл</th>
+          <th>Құзыреттілік тәсілі</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Білімді меңгеру</td>
+          <td class="highlight">Білімді қолдану</td>
+        </tr>
+        <tr>
+          <td>Ақпаратты есте сақтау</td>
+          <td class="highlight">Ақпаратты талдау</td>
+        </tr>
+        <tr>
+          <td>Мұғалім жетекшілігі</td>
+          <td class="highlight">Білім алушының белсенділігі</td>
+        </tr>
+        <tr>
+          <td>Теорияға басымдық беру</td>
+          <td class="highlight">Теория мен практиканы байланыстыру</td>
+        </tr>
+        <tr>
+          <td>Дайын ақпаратты қабылдау</td>
+          <td class="highlight">Өз бетінше шешім қабылдау</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="definition">
+    <p class="lead">
+      <strong>Негізгі айырмашылығы:</strong>
+      дәстүрлі тәсіл білімді меңгеруге бағытталса,
+      құзыреттілік тәсілі сол білімді
+      <span class="gold">өмірде қолдануға</span> бағытталады.
+    </p>
+  </div>
+
+  <p class="small">
+    Ескерту: бұл — екі тәсілдің басым бағыттарын
+    көрсететін шартты салыстыру. Дәстүрлі оқытуда да
+    практикалық жұмыс қолданылуы мүмкін.
+  </p>
+</section>
+
+<!-- 5-СЛАЙД -->
+<section class="slide s5">
+  <div class="slide-no">05</div>
+  <div class="slide-header">
+    <div class="eyebrow">04 · НЕГІЗГІ ҰҒЫМ</div>
+    <h2>Құзырет ұғымының мәні</h2>
+  </div>
+
+  <div class="definition">
+    <p class="lead">
+      <span class="gold spotlight"
+        data-title="Құзырет"
+        data-info="Белгілі бір салада адамның меңгеруі тиіс білім, білік, дағды, тәжірибе және іс-әрекетке қойылатын талаптар жиынтығы.">
+        Құзырет
+      </span>
+      – белгілі бір салада адамның меңгеруі тиіс
+      білім, білік, дағды, тәжірибе және
+      іс-әрекетке қойылатын талаптар жиынтығы.
+    </p>
+  </div>
+
+  <div class="split">
+    <div>
+      <h3>Құзыреттің негізгі құрамдас бөліктері</h3>
+      <div class="info-list">
+        <div class="info-item"><span class="num">01</span>Теориялық білім</div>
+        <div class="info-item"><span class="num">02</span>Практикалық білік</div>
+        <div class="info-item"><span class="num">03</span>Дағдылар</div>
+        <div class="info-item"><span class="num">04</span>Іс-әрекет тәжірибесі</div>
+        <div class="info-item"><span class="num">05</span>Міндеттерді орындау қабілетіне қойылатын талаптар</div>
+      </div>
+    </div>
+
+    <div style="display:grid;gap:16px">
+      <div class="photo-panel">
+        <img class="photo" loading="lazy"
+          src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1100&q=85"
+          alt="Мұғалімнің сыныптағы педагогикалық жұмысы">
+        <div class="photo-caption">
+          Педагогикалық білім және кәсіби талаптар
+        </div>
+      </div>
+      <div class="card">
+        <h3>Педагогикалық мысал</h3>
+        <p>
+          Мұғалімнің құзыретіне педагогикалық білім,
+          оқыту әдістерін меңгеру және оқушылардың
+          психологиялық ерекшеліктерін білу жатады.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="note">
+    Ғылыми контекст: Филипп Перрену құзыреттілікті
+    күрделі жағдайларда ресурстарды жұмылдырумен байланыстырады.
+  </footer>
+</section>
+
+<!-- 6-СЛАЙД -->
+<section class="slide s6">
+  <div class="slide-no">06</div>
+  <div class="slide-header">
+    <div class="eyebrow">05 · НЕГІЗГІ ҰҒЫМ</div>
+    <h2>Құзыреттілік ұғымының мәні</h2>
+  </div>
+
+  <div class="definition">
+    <p class="lead">
+      <span class="gold spotlight"
+        data-title="Құзыреттілік"
+        data-info="Адамның меңгерген білімін, білігі мен дағдыларын нақты өмірлік және кәсіби жағдайларда тиімді қолдана алу қабілеті.">
+        Құзыреттілік
+      </span>
+      – адамның меңгерген білімін, білігі мен
+      дағдыларын нақты өмірлік және кәсіби
+      жағдайларда тиімді қолдана алу қабілеті.
+    </p>
+  </div>
+
+  <div class="split reverse">
+    <div style="display:grid;gap:16px">
+      <div class="photo-panel">
+        <img class="photo" loading="lazy"
+          src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1100&q=85"
+          alt="Оқытушының білім беру үдерісін ұйымдастыруы">
+        <div class="photo-caption">
+          Білімнің нақты педагогикалық әрекетте көрінуі
+        </div>
+      </div>
+      <div class="card">
+        <h3>Мысал</h3>
+        <p>
+          Мұғалімнің сабақты тиімді ұйымдастыруы,
+          оқушылармен дұрыс қарым-қатынас жасауы
+          және оқу мәселелерін шеше білуі.
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <h3>Құзыреттіліктің негізгі белгілері</h3>
+      <div class="info-list">
+        <div class="info-item"><span class="num">01</span>Білімді тәжірибеде қолдану</div>
+        <div class="info-item"><span class="num">02</span>Өз бетінше шешім қабылдау</div>
+        <div class="info-item"><span class="num">03</span>Жауапкершілік таныту</div>
+        <div class="info-item"><span class="num">04</span>Қарым-қатынас жасай білу</div>
+        <div class="info-item"><span class="num">05</span>Өз әрекетін бағалау</div>
+        <div class="info-item"><span class="num">06</span>Үнемі өзін-өзі дамыту</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7-СЛАЙД -->
+<section class="slide s7">
+  <div class="slide-no">07</div>
+  <div class="slide-header">
+    <div class="eyebrow">06 · ҰҒЫМДЫҚ ТАЛДАУ</div>
+    <h2>Құзырет пен құзыреттіліктің айырмашылығы</h2>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Құзырет</th>
+          <th>Құзыреттілік</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Білім мен дағдыларға қойылатын талаптар</td>
+          <td>Білім мен дағдыларды қолдана білу</td>
+        </tr>
+        <tr>
+          <td>Нені білу керектігін көрсетеді</td>
+          <td>Нені орындай алатынын көрсетеді</td>
+        </tr>
+        <tr>
+          <td>Мүмкіндіктер мен талаптарды сипаттайды</td>
+          <td>Нақты іс-әрекеттен көрінеді</td>
+        </tr>
+        <tr>
+          <td>Теориялық негіз</td>
+          <td>Практикалық жүзеге асу</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="definition">
+    <h3>Маңызды тұжырым</h3>
+    <p class="lead">
+      Құзырет – меңгерілуі тиіс білім мен дағдылар
+      жиынтығы, ал құзыреттілік – сол білім мен
+      дағдыларды <span class="gold">іс жүзінде пайдалана білу.</span>
+    </p>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>Құзырет</h3>
+      <p>«Маман нені білуі және меңгеруі тиіс?»</p>
+    </div>
+    <div class="card">
+      <h3>Құзыреттілік</h3>
+      <p>«Маман өз білімін қалай қолданады?»</p>
+    </div>
+  </div>
+
+  <p class="small" style="margin-top:18px">
+    Терминдердің қолданылуы ғылыми әдебиеттерде әртүрлі болуы мүмкін.
+    Бұл презентацияда олардың талап пен практикалық іске асу
+    тұрғысынан айырмашылығы қарастырылды.
+  </p>
+</section>
+
+<!-- 8-СЛАЙД -->
+<section class="slide s8">
+  <div class="slide-no">08</div>
+  <div class="slide-header">
+    <div class="eyebrow">07 · ЖІКТЕЛУ</div>
+    <h2>Құзыреттіліктің негізгі түрлері</h2>
+  </div>
+
+  <div class="grid3">
+    <div class="card">
+      <div class="icon">◉</div>
+      <h3>01. Коммуникативтік</h3>
+      <p>
+        Тиімді қарым-қатынас жасау,
+        өз ойын түсінікті жеткізу,
+        пікір алмасу және тыңдай білу.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">▤</div>
+      <h3>02. Ақпараттық</h3>
+      <p>
+        Ақпаратты іздеу, талдау,
+        өңдеу және сенімді дереккөздерді таңдау.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">♧</div>
+      <h3>03. Әлеуметтік</h3>
+      <p>
+        Қоғамда өз орнын табу,
+        ұжыммен жұмыс істеу
+        және әлеуметтік жауапкершілік таныту.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">✧</div>
+      <h3>04. Тұлғалық</h3>
+      <p>
+        Өзін-өзі дамыту,
+        өз әрекетіне жауапкершілік алу
+        және жеке мақсаттарын анықтау.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">⚙</div>
+      <h3>05. Кәсіби</h3>
+      <p>
+        Мамандыққа қатысты білім мен
+        дағдыларды тәжірибеде қолдану.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Блум таксономиясы</h3>
+      <p>
+        Есте сақтау → түсіну → қолдану →
+        талдау → бағалау → жасау.
+      </p>
+      <p class="small">
+        Танымдық мақсаттарды жіктеудің кең тараған моделі.
+      </p>
+    </div>
+  </div>
+
+  <div class="definition">
+    <p class="lead">
+      Бұл құзыреттіліктер өзара байланысты:
+      кәсіби міндетті орындау кезінде адам
+      ақпараттық, коммуникативтік және
+      әлеуметтік қабілеттерін қатар қолдануы мүмкін.
+    </p>
+  </div>
+</section>
+
+<!-- 9-СЛАЙД -->
+<section class="slide s9">
+  <div class="slide-no">09</div>
+  <div class="slide-header">
+    <div class="eyebrow">08 · ДАМУ МОДЕЛІ</div>
+    <h2>Құзырет пен құзыреттіліктің өзара байланысы</h2>
+  </div>
+
+  <p class="lead">
+    Құзырет пен құзыреттілік –
+    <span class="gold">бір-бірімен тығыз байланысты</span>
+    ұғымдар.
+  </p>
+
+  <h3 style="margin-top:25px">Өзара байланысу кезеңдері</h3>
+
+  <div class="timeline">
+    <div class="step">
+      <span>01</span>
+      <b>Білімді меңгеру</b>
+    </div>
+    <div class="step">
+      <span>02</span>
+      <b>Білік пен дағдыларды қалыптастыру</b>
+    </div>
+    <div class="step">
+      <span>03</span>
+      <b>Білімді тәжірибеде қолдану</b>
+    </div>
+    <div class="step">
+      <span>04</span>
+      <b>Өз бетінше шешім қабылдау</b>
+    </div>
+    <div class="step">
+      <span>05</span>
+      <b>Құзыретті тұлға ретінде қалыптасу</b>
+    </div>
+  </div>
+
+  <div class="definition">
+    <h3>Педагогикалық мысал</h3>
+    <p class="lead">
+      Болашақ педагог алдымен теориялық білім алады,
+      кейін тәжірибеден өтеді, содан соң кәсіби
+      қызметінде алған білімін тиімді қолданады.
+    </p>
+  </div>
+
+  <div class="interactive">
+    <h3>Интерактивті педагогикалық кейс</h3>
+    <p>
+      Мұғалім оқушылардың жаңа тақырыпты
+      түсінбегенін байқады. Құзыретті педагог
+      қандай әрекет жасайды?
+    </p>
+
+    <button class="option" onclick="answer(this,false,'case')">
+      A. Сабақты өзгеріссіз жалғастырады
+    </button>
+    <button class="option" onclick="answer(this,true,'case')">
+      B. Оқыту әдісін өзгертіп, кері байланыс ұйымдастырады
+    </button>
+    <button class="option" onclick="answer(this,false,'case')">
+      C. Тек теориялық анықтамаларды қайталайды
+    </button>
+
+    <div id="case-feedback" class="feedback" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- 10-СЛАЙД -->
+<section class="slide s10">
+  <div class="slide-no">10</div>
+  <div class="slide-header">
+    <div class="eyebrow">09 · ҒЫЛЫМИ ҚОРЫТЫНДЫ</div>
+    <h2>Қорытынды</h2>
+  </div>
+
+  <div class="definition">
+    <p class="lead">
+      <span class="gold">Құзыреттілік тәсілі</span> –
+      қазіргі білім беру жүйесін дамытудың
+      маңызды бағыттарының бірі.
+    </p>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="icon">01</div>
+      <h3>Құзырет</h3>
+      <p>
+        Білім мен дағдыларға қойылатын
+        талаптарды анықтайды.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">02</div>
+      <h3>Құзыреттілік</h3>
+      <p>
+        Сол білімді тәжірибеде қолдану
+        қабілетін көрсетеді.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">03</div>
+      <h3>Өзара байланыс</h3>
+      <p>
+        Екі ұғым өзара тығыз байланысты
+        және бірін-бірі толықтырады.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">04</div>
+      <h3>Білім берудегі маңызы</h3>
+      <p>
+        Білім алушының жеке, әлеуметтік
+        және кәсіби дамуына ықпал етеді.
+      </p>
+    </div>
+  </div>
+
+  <div class="interactive">
+    <h3>Аудиторияға арналған мини-викторина</h3>
+    <p>
+      Құзыреттілік тәсілінің басты ерекшелігі қандай?
+    </p>
+
+    <button class="option" onclick="answer(this,false,'quiz')">
+      A. Ақпаратты тек жаттап алу
+    </button>
+    <button class="option" onclick="answer(this,true,'quiz')">
+      B. Білімді нақты өмірлік жағдайда қолдану
+    </button>
+    <button class="option" onclick="answer(this,false,'quiz')">
+      C. Тек теориялық білімге басымдық беру
+    </button>
+
+    <div id="quiz-feedback" class="feedback" aria-live="polite"></div>
+  </div>
+
+  <p class="quote" style="margin-top:35px">
+    «Білімнің құндылығы — оны саналы әрі
+    жауапты әрекетте қолдана білуде».
+  </p>
+  <p class="small">
+    Тақырыптың негізгі идеясын жинақтайтын авторлық тұжырым.
+  </p>
+</section>
+
+<!-- 11-СЛАЙД -->
+<section class="slide s11">
+  <div class="slide-no">11</div>
+  <div class="slide-header">
+    <div class="eyebrow">10 · SCIENTIFIC REFERENCES</div>
+    <h2>Пайдаланылған әдебиеттер</h2>
+  </div>
+
+  <p class="lead">
+    Ғылыми еңбектер мен халықаралық білім беру
+    құжаттары. QR-кодты сканерлеу арқылы
+    дереккөзге өтуге болады.
+  </p>
+
+  <div class="sources">
+
+    <div class="source">
+      <img
+        alt="John Dewey кітабына QR"
+        src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fwww.gutenberg.org%2Febooks%2F852">
+      <div>
+        <b>1. Dewey, J. (1916).</b>
+        <p class="small">Democracy and Education.</p>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://www.gutenberg.org/ebooks/852">
+          Project Gutenberg — кітапты ашу
+        </a>
+      </div>
+    </div>
+
+    <div class="source">
+      <img
+        alt="Bloom таксономиясына QR"
+        src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fdoi.org%2F10.4324%2F9781315060387">
+      <div>
+        <b>2. Anderson, L. W. & Krathwohl, D. R. (Eds.). (2001).</b>
+        <p class="small">
+          A Taxonomy for Learning, Teaching, and Assessing.
+        </p>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://doi.org/10.4324/9781315060387">
+          Таксономия жөніндегі басылым
+        </a>
+      </div>
+    </div>
+
+    <div class="source">
+      <img
+        alt="OECD Learning Compass QR"
+        src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fwww.oecd.org%2Fen%2Ftopics%2Fsub-issues%2Ffuture-of-education-and-skills.html">
+      <div>
+        <b>3. OECD.</b>
+        <p class="small">
+          Future of Education and Skills / Learning Compass 2030.
+        </p>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://www.oecd.org/en/topics/sub-issues/future-of-education-and-skills.html">
+          OECD — ресми материалдар
+        </a>
+      </div>
+    </div>
+
+    <div class="source">
+      <img
+        alt="UNESCO білім беру QR"
+        src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fwww.unesco.org%2Fen%2Feducation">
+      <div>
+        <b>4. UNESCO.</b>
+        <p class="small">
+          Education — халықаралық білім беру материалдары.
+        </p>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://www.unesco.org/en/education">
+          UNESCO — ресми сайт
+        </a>
+      </div>
+    </div>
+
+    <div class="source">
+      <img
+        alt="Perrenoud кітабын іздеуге QR"
+        src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fsearch.worldcat.org%2Fsearch%3Fq%3DPhilippe%2BPerrenoud%2BConstruire%2Bdes%2Bcompetences%2Bdes%2Bl%2527ecole">
+      <div>
+        <b>5. Perrenoud, P. (1997).</b>
+        <p class="small">
+          Construire des compétences dès l'école.
+        </p>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://search.worldcat.org/search?q=Philippe+Perrenoud+Construire+des+competences+des+l%27ecole">
+          WorldCat — еңбекті іздеу
+        </a>
+      </div>
+    </div>
+
+    <div class="source">
+      <img
+        alt="Еуропалық құзыреттіліктер құжатына QR"
+        src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Feur-lex.europa.eu%2Feli%2Freco%2F2018%2F0604%281%29%2Foj">
+      <div>
+        <b>6. Council of the European Union (2018).</b>
+        <p class="small">
+          Recommendation on Key Competences for Lifelong Learning.
+        </p>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://eur-lex.europa.eu/eli/reco/2018/0604(1)/oj">
+          EUR-Lex — ресми құжат
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="definition">
+    <p class="lead">
+      Ғылыми білімнің мақсаты —
+      теориялық түсінікті қалыптастыру ғана емес,
+      оны нақты әрекетпен байланыстыру.
+    </p>
+  </div>
+
+  <p class="small">
+    Ескерту: кейбір сілтемелер толық мәтінге емес,
+    ресми сипаттамаға немесе кітапхана каталогына апарады.
+    QR-кодтар интернет қосылған кезде жүктеледі.
+  </p>
+</section>
+
+<!-- SPOTLIGHT -->
+<div id="spotlightOverlay" role="dialog" aria-modal="true"
+  aria-labelledby="spotlightTitle">
+  <div id="spotlightBox">
+    <h2 id="spotlightTitle"></h2>
+    <p id="spotlightText"></p>
+    <button class="nav-btn" onclick="closeSpotlight()">
+      Жабу ✕
+    </button>
+  </div>
+</div>
+
+<!-- БАСҚАРУ ПАНЕЛІ -->
+<div id="progress"></div>
+<nav>
+  <div class="nav-left">
+    <span id="slideCount">01 / 11</span>
+    <span style="margin-left:15px;color:#9facbe">
+      KA-25-20
+    </span>
+  </div>
+
+  <div class="nav-right">
+    <button class="nav-btn" onclick="changeSlide(-1)"
+      aria-label="Алдыңғы слайд">←</button>
+    <button class="nav-btn" onclick="changeSlide(1)"
+      aria-label="Келесі слайд">→</button>
+    <button class="nav-btn" onclick="toggleFullscreen()"
+      aria-label="Толық экран">⛶</button>
+  </div>
+</nav>
+
+<script>
+const slides = [...document.querySelectorAll(".slide")];
+let current = 0;
+
+function showSlide(index) {
+  if(index < 0 || index >= slides.length) return;
+
+  slides[current].classList.remove("active");
+  current = index;
+  slides[current].classList.add("active");
+  slides[current].scrollTop = 0;
+
+  document.getElementById("slideCount").textContent =
+    String(current + 1).padStart(2,"0") +
+    " / " + String(slides.length).padStart(2,"0");
+
+  document.getElementById("progress").style.width =
+    ((current + 1) / slides.length * 100) + "%";
+}
+
+function changeSlide(direction) {
+  showSlide(current + direction);
+}
+
+function toggleFullscreen() {
+  if(!document.fullscreenElement) {
+    document.documentElement.requestFullscreen?.();
+  } else {
+    document.exitFullscreen?.();
+  }
+}
+
+document.addEventListener("keydown", function(e) {
+  if(document.getElementById("spotlightOverlay")
+    .classList.contains("open")) {
+    if(e.key === "Escape") closeSpotlight();
+    return;
+  }
+
+  if(["ArrowRight","PageDown"," "].includes(e.key)) {
+    e.preventDefault();
+    changeSlide(1);
+  }
+  if(["ArrowLeft","PageUp"].includes(e.key)) {
+    e.preventDefault();
+    changeSlide(-1);
+  }
+  if(e.key === "Home") showSlide(0);
+  if(e.key === "End") showSlide(slides.length-1);
+  if(e.key.toLowerCase() === "f") toggleFullscreen();
+});
+
+function answer(button, correct, group) {
+  const parent = button.parentElement;
+  const buttons = parent.querySelectorAll(".option");
+
+  buttons.forEach(b => {
+    b.classList.remove("correct","wrong");
+  });
+
+  button.classList.add(correct ? "correct" : "wrong");
+
+  const feedback = document.getElementById(group+"-feedback");
+  feedback.textContent = correct
+    ? "✓ Дұрыс жауап! Құзыреттілік білімді тәжірибеде тиімді қолдануды білдіреді."
+    : "Қайта ойланып көріңіз. Негізгі белгі — білімді тәжірибеде қолдану.";
+}
+
+function closeSpotlight() {
+  document.getElementById("spotlightOverlay")
+    .classList.remove("open");
+}
+
+document.querySelectorAll(".spotlight").forEach(el => {
+  el.addEventListener("click", () => {
+    document.getElementById("spotlightTitle").textContent =
+      el.dataset.title;
+    document.getElementById("spotlightText").textContent =
+      el.dataset.info;
+    document.getElementById("spotlightOverlay")
+      .classList.add("open");
+  });
+});
+
+document.getElementById("spotlightOverlay")
+  .addEventListener("click", e => {
+    if(e.target.id === "spotlightOverlay") closeSpotlight();
+  });
+
+/* ТЕЛЕФОНДАҒЫ SWIPE БАСҚАРУ */
+let touchStartX = 0;
+let touchStartY = 0;
+
+document.addEventListener("touchstart", e => {
+  touchStartX = e.changedTouches[0].screenX;
+  touchStartY = e.changedTouches[0].screenY;
+}, {passive:true});
+
+document.addEventListener("touchend", e => {
+  if(e.target.closest("button,a,.interactive")) return;
+
+  const dx = e.changedTouches[0].screenX - touchStartX;
+  const dy = e.changedTouches[0].screenY - touchStartY;
+
+  if(Math.abs(dx)>90 && Math.abs(dx)>Math.abs(dy)*1.5) {
+    changeSlide(dx<0 ? 1 : -1);
+  }
+}, {passive:true});
+
+showSlide(0);
+</script>
+</body>
+</html>
